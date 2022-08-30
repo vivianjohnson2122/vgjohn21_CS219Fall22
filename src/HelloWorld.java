@@ -6,5 +6,7 @@ public class HelloWorld {
         int num = 8;
         double pi = 3.14159;
         boolean isFair = true;
+        String name = "name";
+
     }
 }
