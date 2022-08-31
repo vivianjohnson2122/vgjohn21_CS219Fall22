@@ -1,8 +1,9 @@
+// Generating the number of seconds left in the day and that have elapsed
+// Calculating the percent of the day that has passed
 package HW1;
 
 public class Time {
     public static void main(String [] args){
-
         // variables that set the current time (24 hr clock)
         int hour = 15;
         int minute = 23;
