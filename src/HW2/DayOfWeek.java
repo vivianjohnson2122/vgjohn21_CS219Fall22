@@ -10,13 +10,13 @@ public class DayOfWeek {
         int mon = kbd.nextInt();
 
         System.out.print("Enter a date: ");
-        int d = kbd.nextInt();
+        int dt = kbd.nextInt();
 
         System.out.print("Enter a year: ");
         int yr = kbd.nextInt();
 
         // calling method
-        System.out.println(dayOfWeek(mon, d, yr));
+        System.out.println(dayOfWeek(mon, dt, yr));
     }
 
     // method takes in a month, day, year and returns an int
