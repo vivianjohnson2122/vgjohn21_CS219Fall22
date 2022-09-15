@@ -6,19 +6,31 @@ public class Weather {
 
     public static void main(String [] args){
 
-        System.out.println("They said \"Don't do it\" ");
+        //System.out.println("They said \"Don't do it\" ");
         // used for getting input from the keyboard
         Scanner kbd = new Scanner(System.in);
 
         System.out.print("Enter temperature in degrees F: ");
-        double temperature = kbd.nextDouble();
+        double t = kbd.nextDouble();
+
+        double temperature;
+        if (kbd.hasNextDouble()){
+            temperature = kbd.nextDouble();
+        }
+        else {
+            System.out.printf("Error: Please enter a decimal number. You entered %s",
+                    kbd.next());
+            return; // exit main
+        }
+
+
 
         System.out.print("Enter wind velocity in MPH: ");
         double velocity = kbd.nextDouble();
 
         // calling method using printf()
         System.out.printf("The Windchill for %.1f degrees F at %.1f mph is %.2f\n",
-                temperature, velocity, windchill(temperature, velocity));
+                t, velocity, windchill(t, velocity));
     }
 
     // This method calculates the wind chill
