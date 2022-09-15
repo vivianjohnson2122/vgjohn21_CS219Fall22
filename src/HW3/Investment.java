@@ -3,7 +3,6 @@ Vivian Johnson
 9.15.22
 Homework 3
  */
-
 package HW3;
 
 import java.util.Scanner;
