@@ -4,39 +4,62 @@ import java.util.Scanner;
 
 public class Weather {
 
-    public static void main(String [] args){
+    public static double windchill(double t,    // temperature
+                                   double v) {  // velocity in MPH
+        return 35.75 + 0.6215*t + (0.4275*t - 35.75)*Math.pow(v, 0.16);
+    }
 
-        //System.out.println("They said \"Don't do it\" ");
-        // used for getting input from the keyboard
+    public static double getVelocity(Scanner s){
+        boolean valid = false;
+        double velocity = 0;
+
+        while(!valid) {
+            System.out.print("Enter wind velocity in MPH: ");
+
+            if (s.hasNextDouble()) {
+                velocity = s.nextDouble();
+                if(velocity < 0){
+                    System.out.printf("Error: Velocity can't be negative. You entered %.2f", velocity);
+                } else {
+                    valid = true;
+                }
+            } else {
+                System.out.printf("Error: please enter a decimal number. You entered \"%s\"",
+                        s.next());
+            }
+        }
+        return velocity;
+    }
+
+    public static double getTemperature(Scanner s){
+        boolean valid = false;
+        double temperature = 0;
+
+        while(!valid){
+            System.out.print("Enter temperature in degrees F: ");
+
+            if(s.hasNextDouble()){
+                temperature = s.nextDouble();
+                valid = true;
+            } else {
+                System.out.printf("Error: please enter a  number. You entered \"%s\"",
+                        s.next());
+            }
+        }
+        return temperature;
+    }
+
+    public static void main(String [] args) {
+
+        // Used for getting input from the keyboard
         Scanner kbd = new Scanner(System.in);
 
-        System.out.print("Enter temperature in degrees F: ");
-        double t = kbd.nextDouble();
+        double temperature = getTemperature(kbd);
+        double velocity = getVelocity(kbd);
 
-        double temperature;
-        if (kbd.hasNextDouble()){
-            temperature = kbd.nextDouble();
-        }
-        else {
-            System.out.printf("Error: Please enter a decimal number. You entered %s",
-                    kbd.next());
-            return; // exit main
-        }
+        System.out.printf("The windchill for %.1f degrees at %.1f MPH is %.2f\n",
+                temperature, velocity, windchill(temperature, velocity));
 
-
-
-        System.out.print("Enter wind velocity in MPH: ");
-        double velocity = kbd.nextDouble();
-
-        // calling method using printf()
-        System.out.printf("The Windchill for %.1f degrees F at %.1f mph is %.2f\n",
-                t, velocity, windchill(t, velocity));
     }
 
-    // This method calculates the wind chill
-    // Takes in the temperature (F) and the wind speed (MPH)
-    public static double windchill(double temp, double windVelocity){
-        double wc = 35.75 + (0.6215 * temp) + (0.4275 * temp - 35.75) * Math.pow(windVelocity, 0.16);
-        return wc;
-    }
 }

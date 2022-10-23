@@ -1,5 +1,4 @@
 // Importing the investment method (class) from the utility package
-import HW3.Investment;
 /* import java.util.Scanner;
 
 public class InvestmentCalculator {

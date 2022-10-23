@@ -20,7 +20,6 @@ public class Exercise66 {
     // check and see if char at index i of word is in tiles at all
     // if it is, go to next index, if not return false
     // if it is, remove letter from the tiles because can only use once
-    // not removing right, doesn't work for multiple letters
     public static boolean canSpell(String word, String tiles) {
         boolean canSpell = true;
         word = word.toLowerCase();
