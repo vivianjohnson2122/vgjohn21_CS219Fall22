@@ -99,40 +99,38 @@ public class HW7 {
        numDifferent(nums) would return 15 because this list contains 15 different values.
      */
     public static int numDifferent(int [] nums) {
-        int count = 0;
-        boolean areSame = true;
-        for(int i = 0; i < nums.length - 1; i++ ){
-           if(nums[i] != nums[i+1])
-               areSame = false;
-           while(!areSame)
-               count++;
+        int count = nums.length;
+        for(int i = 0; i < nums.length - 1; i++) {
+            boolean areSame = nums[i] == nums[i + 1];
+            if (areSame)
+                count--;
         }
         return count;
     }
 
     public static void main(String[] args) {
-        String [] names = {"Harry", "Ron", "Draco", "Draco", "Hermione"};
-        String [] fruit = {"apple", "pear", "banana", "apple", "orange", "guava"};
+        String[] names = {"Harry", "Ron", "Draco", "Draco", "Hermione"};
+        String[] fruit = {"apple", "pear", "banana", "apple", "orange", "guava"};
         System.out.println(hasAdjacent(names));
         System.out.println(!hasAdjacent(fruit));
         System.out.println(hasDuplicate(names));
         System.out.println(hasDuplicate(fruit));
-        System.out.println(!hasDuplicate(new String [] {"baseball", "hockey", "soccer", "football"}));
+        System.out.println(!hasDuplicate(new String[]{"baseball", "hockey", "soccer", "football"}));
 
-        int [] values = {2,7,11,15};
+        int[] values = {2, 7, 11, 15};
         System.out.println(goofy(values, 9));
         System.out.println(!goofy(values, 5));
 
         System.out.println(Arrays.equals(make_array("hello"),
-                new char [] {'h','e','l','l','o'}));
+                new char[]{'h', 'e', 'l', 'l', 'o'}));
 
         System.out.println(isAnagram("angered", "enraged"));
         System.out.println(!isAnagram("pizza", "sauce"));
 
-        int [] nums = {3, 5, 5, 5, 8, 21, 21, 23, 34, 39, 39, 40, 40, 40, 41};
+        int[] nums = {3, 5, 5, 5, 8, 21, 21, 23, 34, 39, 39, 40, 40, 40, 41};
         System.out.println(numDifferent(nums) == 9);
 
-        int [] nums2 = {1, 2, 11, 17, 19, 20, 23, 24, 25, 26, 31, 34, 37, 40, 41};
+        int[] nums2 = {1, 2, 11, 17, 19, 20, 23, 24, 25, 26, 31, 34, 37, 40, 41};
         System.out.println(numDifferent(nums2) == 15);
 
     }
