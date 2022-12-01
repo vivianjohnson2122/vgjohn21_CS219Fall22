@@ -61,6 +61,7 @@ public class Exam {
 
         int i = 0;
         int j = 0;
+        boolean isAPalindrome = false;
         while(s.hasNextLine()){
             words[i] = s.nextLine();
             if(isPalindrome(words[i])){

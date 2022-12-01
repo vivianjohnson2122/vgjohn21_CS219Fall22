@@ -12,12 +12,19 @@ public class Play {
         System.out.println(Math.floor(-5/2));     // -2.0
         System.out.println(Math.floor(-5/2.0));   // -3.0
         System.out.println(Math.floorDiv(-3, 2));  // -2
+        System.out.println(Math.floorDiv(-17, 3)); // -6
 
         // remainder play
         System.out.println(-15 % 12);
         System.out.println(-93 % 13);
         System.out.println(Math.floorMod(-15,12));
         System.out.println(Math.floorMod(-93, 13));
+        System.out.println(Math.floorMod(-17, 3));
+
+        System.out.println("FloorMod");
+        System.out.println(Math.floorMod(7, 99));
+
+
 
     }
 }
