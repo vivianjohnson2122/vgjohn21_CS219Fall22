@@ -23,5 +23,8 @@ public class Main {
 
         WeatherObservation wob = db.search("13617").getWeatherData();
         System.out.println(wob);
+
+        // testing getNorthern()
+        System.out.println(db.getNorthern());
     }
 }

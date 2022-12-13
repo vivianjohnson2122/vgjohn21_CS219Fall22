@@ -10,7 +10,7 @@ import java.util.Scanner;
 /*
     Stores information about all the zipcodes
  */
-public class Database {
+public class Database implements LatLngInterface {
 
     private ArrayList<Zipcode> codes;
 
@@ -108,4 +108,21 @@ public class Database {
         else
             return null;
     }
+
+    /*
+        Return the zipcode info of the Northern most latitude
+     */
+    public Zipcode getNorthern(){
+
+        Zipcode northernMost = this.codes.get(0);
+        // goes through the zipcodes
+        for(int i = 0; i < this.codes.size()-1; i++){
+            Zipcode currCode = this.codes.get(i);
+            double currLat = currCode.getLat();
+            if(currLat >= this.codes.get(i+1).getLat())
+                northernMost = this.codes.get(i);
+        }
+        return northernMost;
+    }
+
 }
